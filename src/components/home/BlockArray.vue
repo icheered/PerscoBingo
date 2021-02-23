@@ -1,5 +1,5 @@
 <template>
-<v-container>
+<v-container class="mb-15">
     <v-row v-bind:key="wordlist" v-for="(wordlist, i) in words">
         <v-col v-bind:key="word" v-for="(word, j) in wordlist">
             <Block :word="word" :i="i" :j="j"></Block>   
