@@ -3,7 +3,7 @@
       <v-col class="text-center" cols="12">
         
         <v-btn text outlined> 
-          <v-list-item class="custom-btn" href="https://github.com/icheered" target="_blank" hover>
+          <v-list-item class="custom-btn" href="https://github.com/icheered/PerscoBingo" target="_blank" hover>
             {{ new Date().getFullYear() }} - ICheered
             <v-icon right >fa-github</v-icon>
           </v-list-item>

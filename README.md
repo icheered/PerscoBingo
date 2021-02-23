@@ -1,24 +1,8 @@
-# Scrimba Vuetify 
+# Persco-Bingo
+Persco-Bingo is een bingo voor de persconferenties gemaakt in Vue en Vuetify.
 
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Images
+### Main screen
+![](src/assets/bingobasic.png)
+### Bingo
+![](src/assets/bingobingo.png)
