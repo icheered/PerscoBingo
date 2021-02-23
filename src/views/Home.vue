@@ -5,7 +5,7 @@
     <v-overlay class="flex-column" v-if="$store.state.render.overlay && $store.state.render.canGetOverlay">
       <h1 class="font-weight-bold display-4">Bingo!</h1>
       <v-row justify="center" class="mt-8">
-        <v-btn color="primary" @click="niceclick">Nice</v-btn>
+        <v-btn color="primary" large @click="niceclick" elevation="4">Nice</v-btn>
       </v-row>
     </v-overlay>
     <v-container class="fill-height" v-if="$store.state.render.bingo">
