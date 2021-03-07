@@ -22,10 +22,17 @@
         </v-expansion-panel-header>
         <v-expansion-panel-content absolute>
           <v-col>
-          <v-row class="justify-center text-center pb-5">
+          <v-row class="justify-center text-center">
             <p class="italic">
               Issues, vragen, opmerkingen of suggesties? <a href="https://icheered.nl/contact/index.html" target="_blank"> Contact me! </a> 
             </p>
+          </v-row>
+          <v-row class="justify-center text-center pb-5">
+            <v-switch
+              v-model="switch1"
+              :label="'Studentenconfetti'"
+              @click="switchClick"
+            ></v-switch>
           </v-row>
           <v-row class="justify-left text-left">
             <h3>
@@ -53,7 +60,13 @@
   export default {
     data: () => ({
       sheet: false,
+      switch1: false
     }),
+    methods: {
+      switchClick() {
+        this.$store.state.confettiSwitch = this.switch1
+      }
+    }
   }
 </script>
 

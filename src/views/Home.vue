@@ -47,7 +47,26 @@ export default {
   watch: {
     '$store.state.render.overlay': function() {
       if(this.$store.state.render.canGetOverlay && this.$store.state.render.overlay){
-        this.$confetti.start()
+        if(this.$store.state.confettiSwitch) {
+          this.$confetti.start({
+          particles:[
+            {
+              type: 'image',
+              url: 'https://www.dutchexpatshop.com/media/catalog/product/cache/ac21323b66bd6730a5f1021132460f2e/0/6/060520191339_48039BLK-1.png',
+              size: 40,
+              dropRate: 7
+            },
+          ]})
+        } else {
+          this.$confetti.start({
+          particles:[
+            {
+              type: 'circle',
+              size: 10,
+              dropRate: 10
+            }
+          ]})
+        }
       } else {
         this.$confetti.stop()
       }
