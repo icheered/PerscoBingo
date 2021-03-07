@@ -41,6 +41,7 @@ export default {
     },
     methods: {
         invert() {
+
             this.done = !this.done
             this.setColor()
             //this.$store.updateBingo(this.done, this.i, this.j)

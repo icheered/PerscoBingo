@@ -22,18 +22,25 @@
         </v-expansion-panel-header>
         <v-expansion-panel-content absolute>
           <v-col>
-          <v-row class="justify-center text-center pb-3">
+          <v-row class="justify-center text-center pb-5">
             <p class="italic">
               Issues, vragen, opmerkingen of suggesties? <a href="https://icheered.nl/contact/index.html" target="_blank"> Contact me! </a> 
             </p>
           </v-row>
-          <v-row class="justify-center text-center">
+          <v-row class="justify-left text-left">
             <h3>
-              Laatste update
+              Laatste updates
             </h3>
           </v-row>
-          <v-row class="justify-center text-center">
-            Iedereen heeft nu een random bingokaart!
+          <v-row class="justify-left text-left">
+          <v-col cols="12" class="pr-0 ma-0">
+          <ul>
+            <li>Iedereen heeft nu een random bingokaart</li>
+            <li>Confetti</li>
+            <li>...</li>
+            <li>Eigenlijk vooral Confetti</li>
+          </ul>  
+          </v-col>
           </v-row>
           </v-col>
         </v-expansion-panel-content>

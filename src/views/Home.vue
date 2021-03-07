@@ -2,7 +2,7 @@
   <div disable-dbl-tap-zoom>
     <Header/>
     <BlockArray/>
-    <v-overlay class="flex-column" v-if="$store.state.render.overlay && $store.state.render.canGetOverlay">
+    <v-overlay class="flex-column overlay--active" v-if="$store.state.render.overlay && $store.state.render.canGetOverlay">
       <h1 class="font-weight-bold display-4">Bingo!</h1>
       <v-row justify="center" class="pt-8">
         <v-btn color="primary" large @click="niceclick" elevation="4">Nice</v-btn>
@@ -40,14 +40,38 @@ export default {
   },
   methods: {
     niceclick() {
-      this.$store.state.render.canGetOverlay = false
+      this.$store.state.render.canGetOverlay = false,
+      this.$confetti.stop()
+    }
+  },
+  watch: {
+    '$store.state.render.overlay': function() {
+      if(this.$store.state.render.canGetOverlay && this.$store.state.render.overlay){
+        this.$confetti.start()
+      } else {
+        this.$confetti.stop()
+      }
     }
   }
 }
 </script>
 
-<style>
+<style lang="scss">
+@import '@/assets/shared.scss';
+
 .disable-dbl-tap-zoom {
   touch-action: manipulation;
+}
+
+.overlay--active {
+  @keyframes overlay-fade-in {
+    0% { opacity: 0; }
+    25% { opacity: 0.25; }
+    50% { opacity: 0.5; }
+    75% { opacity: 0.75; }
+    100% { opacity: 1; }
+  }
+  
+  animation: overlay-fade-in 0.25s linear 0s 1 both;
 }
 </style>
