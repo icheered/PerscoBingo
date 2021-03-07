@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="disable-dbl-tap-zoom">
     <v-hover v-slot="{ hover }">
         <v-sheet 
             :elevation="hover ? 8 : 3"
@@ -7,14 +7,15 @@
             height="100"
             @click="invert" 
             :color="color"
-            class="text-center transition-fast-in-fast-out ma-n2"
-            
+            class="text-center transition-fast-in-fast-out"
+            max-width="100%"
         >
+        
             <v-container class="fill-height">
-                <v-row align="center" justify="center" v-if="done" class="wordtext text-decoration-line-through" >
+                <v-row align="center" justify="center" v-if="done" class="wordtext text-break text-decoration-line-through" >
                     {{word}}
                 </v-row>
-                <v-row align="center" justify="center" v-else class="wordtext">
+                <v-row align="center" justify="center" v-else class="wordtext text-break ">
                     {{word}}
                 </v-row>
             </v-container>

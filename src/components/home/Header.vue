@@ -1,5 +1,5 @@
 <template>
-  <v-sheet :height="120" color="grey lighten-3" class="mb-2">
+  <v-sheet :height="120" color="grey lighten-3" class="mb-2 disable-dbl-tap-zoom">
     <v-container class="fill-height">
       <v-row align="center" justify="center" >
         <h1 class="text-center display-3">

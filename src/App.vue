@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-app class="disable-dbl-tap-zoom">
     <v-content>
       <router-view></router-view>
     </v-content>
