@@ -54,9 +54,19 @@ export default {
               type: 'image',
               url: 'https://www.dutchexpatshop.com/media/catalog/product/cache/ac21323b66bd6730a5f1021132460f2e/0/6/060520191339_48039BLK-1.png',
               size: 40,
-              dropRate: 7
+              amount: 10,
+              dropRate: 5
             },
-          ]})
+            {
+              type: 'image',
+              url: 'https://www.plus.nl/INTERSHOP/static/WFS/PLUS-Site/-/PLUS/nl_NL/product/L/861575.png',
+              size: 40,
+              amount: 10,
+              dropRate: 5
+            }
+          ],
+          particlesPerFrame: 0.8
+          },)
         } else {
           this.$confetti.start({
           particles:[
