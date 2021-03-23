@@ -18,6 +18,7 @@ const store =  new Vuex.Store({
           overlay: false,
           canGetOverlay: true
       },
+      confettiSwitch: false
     },
     mutations: {
       updateBingo (state, {blockState, i, j}) {
