@@ -53,7 +53,7 @@ class Server:
         self.logger = logger
         self.loop = loop
 
-        self.peakWS = self.get_ws_counter()
+        self.peakWS = 0
 
         self.manager = ConnectionManager(logger=logger)
 
@@ -156,10 +156,10 @@ class Server:
 
         return counter
     
-    async def get_ws_counter(self):
-        async with aiofiles.open('wscounter', mode='r') as f:
-            self.peakWS = await f.read()
+    def get_ws_counter(self):
+        with open('wscounter', mode='r') as f:
+            return f.read()
     
-    async def write_ws_counter(self, peakws):
-        async with aiofiles.open('wscounter', mode='w') as f:
-            await f.write(peakws)
+    def write_ws_counter(self, peakws):
+        with open('wscounter', mode='w') as f:
+            f.write(peakws)
