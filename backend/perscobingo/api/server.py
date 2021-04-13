@@ -53,7 +53,7 @@ class Server:
         self.logger = logger
         self.loop = loop
 
-        self.peakWS = 0
+        self.peakWS = self.get_ws_counter()
 
         self.manager = ConnectionManager(logger=logger)
 
@@ -162,4 +162,4 @@ class Server:
     
     def write_ws_counter(self, peakws):
         with open('wscounter', mode='w') as f:
-            f.write(peakws)
+            f.write(str(peakws))
