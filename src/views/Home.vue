@@ -50,7 +50,7 @@ export default {
       console.log("Here")
 
       let data = ""
-      let URL = "http://localhost:8010/getstats"
+      let URL = "https://bingo.icheered.nl/getstats"
       
       fetch(URL, {
 			})
@@ -66,7 +66,7 @@ export default {
     },
     connectWS(){
       console.log("Connecting to WS")
-      var websocket = new WebSocket("ws://127.0.0.1:8010/ws")
+      var websocket = new WebSocket("wss://bingo.icheered.nl/ws/ws")
       websocket.onopen = (event) => {
           console.log("Created Opened")
       }
