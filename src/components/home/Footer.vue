@@ -46,10 +46,8 @@
           <v-row class="justify-left text-left">
           <v-col cols="12" class="pr-0 ma-0">
           <ul>
-            <li>Iedereen heeft nu een random bingokaart</li>
-            <li>Confetti</li>
-            <li>...</li>
-            <li>Eigenlijk vooral Confetti</li>
+            <li>Je kunt zien hoeveel mensen er nu spelen</li>
+            <li>Bingokaarten zijn nu genummerd</li>
           </ul>  
           </v-col>
           </v-row>
