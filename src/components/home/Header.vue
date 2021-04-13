@@ -15,7 +15,7 @@
       </v-row>
       <v-row justify="center" class="mt-n2">
         <p class="caption">
-          Spelers op dit moment: {{wsconns}} (Highscore: {{wspeak}})
+          Spelers op dit moment: {{wsconns}} (Peak: {{wspeak}})
         </p>
       </v-row>
       
