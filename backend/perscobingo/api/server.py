@@ -53,7 +53,7 @@ class Server:
         self.logger = logger
         self.loop = loop
 
-        self.peakWS = self.get_ws_counter()
+        self.peakWS = int(self.get_ws_counter())
 
         self.manager = ConnectionManager(logger=logger)
 
@@ -80,7 +80,7 @@ class Server:
         @app.websocket("/ws")
         async def websocket_endpoint(websocket: WebSocket):
             await self.manager.connect(websocket)
-            if len(self.manager.active_connections) > self.peakWS:
+            if len(self.manager.active_connections) > int(self.peakWS):
                 self.peakWS = len(self.manager.active_connections)
                 self.write_ws_counter(peakws=self.peakWS)
             message = {
