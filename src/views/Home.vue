@@ -1,6 +1,6 @@
 <template>
   <div disable-dbl-tap-zoom>
-    <Header/>
+    <Header :cardnumber="cardnumber"></Header>
     <BlockArray/>
     <v-overlay class="flex-column overlay--active" v-if="$store.state.render.overlay && $store.state.render.canGetOverlay">
       <h1 class="font-weight-bold display-4">Bingo!</h1>
@@ -35,28 +35,54 @@ export default {
     "BlockArray": BlockArray,
     'Footer': Footer,
   },
-  data() {
-    return {
-    }
-  },
+    data() {
+        return {
+            cardnumber: "0",
+            wsconns: 0,
+        }
+    },
   methods: {
     niceclick() {
       this.$store.state.render.canGetOverlay = false,
       this.$confetti.stop()
     },
     getStats() {
+      console.log("Here")
+
+      let data = ""
       let URL = "http://localhost:8010/getstats"
-      fetch(URL, {mode: 'no-cors'})
-      .then((response) => response.json())
-      .then((data) => {
+      
+      fetch(URL, {
+			})
+			.then(response => response.json())
+			.then(data => {
         console.log(data)
-      })
-      .catch(function(error) {
+        this.cardnumber = data.total
+			})
+			.catch((error) => {
+				console.error('Error: ', error);
         console.log(error);
-      });
-    } 
+			})
+    },
+    connectWS(){
+      console.log("Connecting to WS")
+      var websocket = new WebSocket("ws://127.0.0.1:8010/ws")
+      websocket.onopen = (event) => {
+          console.log("Created Opened")
+      }
+      websocket.onmessage = (event) => {
+        console.log(event)
+        let wsdata = JSON.parse(event.data)
+        console.log(wsdata.ws)
+        this.$store.commit('updateWS', {wsconns: wsdata.ws})
+      }
+      websocket.onclose = (event) => {
+          console.log("Connection closed")
+      }
+    }
   },
   mounted() {
+    this.connectWS()
     this.getStats()
   },
   watch: {

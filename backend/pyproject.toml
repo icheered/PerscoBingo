@@ -7,11 +7,11 @@ authors = ["ICheered <tjeerd992@gmail.com>"]
 [tool.poetry.dependencies]
 python = "^3.9"
 fastapi = "^0.63.0"
-uvicorn = "^0.13.4"
 Jinja2 = "^2.11.3"
 loguru = "^0.5.3"
 ConfigArgParse = "^1.4"
 aiofiles = "^0.6.0"
+uvicorn = {extras = ["standard"], version = "^0.13.4"}
 
 [tool.poetry.dev-dependencies]
 

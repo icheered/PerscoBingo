@@ -18,7 +18,8 @@ const store =  new Vuex.Store({
           overlay: false,
           canGetOverlay: true
       },
-      confettiSwitch: false
+      confettiSwitch: false,
+      wsconns: 0,
     },
     mutations: {
       updateBingo (state, {blockState, i, j}) {
@@ -84,7 +85,10 @@ const store =  new Vuex.Store({
           this.state.render.canGetOverlay = true
         }
         console.log()
-        }
+        },
+        updateWS(state, {wsconns}){
+          this.state.wsconns = wsconns
+        },
       },
     actions: {}
   })

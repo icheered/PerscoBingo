@@ -6,7 +6,6 @@
         <v-col v-bind:key="word" v-for="(word, j) in wordlist" cols="2" class="pa-0 ma-1">
             <Block :word="word" :i="i" :j="j"></Block>
         </v-col>
-        
     </v-row>
     </v-col>
     </v-container>
