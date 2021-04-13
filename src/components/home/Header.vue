@@ -15,7 +15,7 @@
       </v-row>
       <v-row justify="center" class="mt-n2">
         <p class="caption">
-          Spelers op dit moment: {{wsconns}}
+          Spelers op dit moment: {{wsconns}} (Highscore: {{wspeak}})
         </p>
       </v-row>
       
@@ -37,6 +37,7 @@ export default {
   },
   computed: mapState({
     wsconns: state => state.wsconns,
+    wspeak: state => state.wspeak,
   }),
 }
 </script>

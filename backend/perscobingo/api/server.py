@@ -53,6 +53,8 @@ class Server:
         self.logger = logger
         self.loop = loop
 
+        self.peakWS = 0
+
         self.manager = ConnectionManager(logger=logger)
 
         self.wscounter = 0
@@ -78,8 +80,11 @@ class Server:
         @app.websocket("/ws")
         async def websocket_endpoint(websocket: WebSocket):
             await self.manager.connect(websocket)
+            if len(self.manager.active_connections) > self.peakWS:
+                self.peakWS = len(self.manager.active_connections)
             message = {
-                "ws": len(self.manager.active_connections)
+                "ws": len(self.manager.active_connections),
+                "peak": self.peakWS,
             }
             await self.manager.send_message_to_all(message)
             try:
@@ -96,7 +101,8 @@ class Server:
                 await self.manager.disconnect(websocket)
             finally:
                 message = {
-                    "ws": len(self.manager.active_connections)
+                    "ws": len(self.manager.active_connections),
+                    "peak": self.peakWS,
                 }
                 await self.manager.send_message_to_all(message)
 

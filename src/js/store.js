@@ -20,6 +20,7 @@ const store =  new Vuex.Store({
       },
       confettiSwitch: false,
       wsconns: 0,
+      wspeak: 0,
     },
     mutations: {
       updateBingo (state, {blockState, i, j}) {
@@ -88,6 +89,9 @@ const store =  new Vuex.Store({
         },
         updateWS(state, {wsconns}){
           this.state.wsconns = wsconns
+        },
+        updateWSpeak(state, {peak}){
+          this.state.wspeak = peak
         },
       },
     actions: {}

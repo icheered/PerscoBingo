@@ -66,15 +66,17 @@ export default {
     },
     connectWS(){
       console.log("Connecting to WS")
-      var websocket = new WebSocket("wss://bingo.icheered.nl/ws/ws")
+      //var websocket = new WebSocket("wss://bingo.icheered.nl/ws/ws")
+      var websocket = new WebSocket("ws://localhost:8010/ws")
       websocket.onopen = (event) => {
           console.log("Created Opened")
       }
       websocket.onmessage = (event) => {
         console.log(event)
         let wsdata = JSON.parse(event.data)
-        console.log(wsdata.ws)
+        console.log(wsdata)
         this.$store.commit('updateWS', {wsconns: wsdata.ws})
+        this.$store.commit('updateWSpeak', {peak: wsdata.peak})
       }
       websocket.onclose = (event) => {
           console.log("Connection closed")
