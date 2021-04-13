@@ -54,6 +54,10 @@ class Server:
         self.loop = loop
 
         self.peakWS = 0
+        try:
+            self.peakWS = get_ws_counter()
+        except Exception as e:
+            self.logger.error(e)
 
         self.manager = ConnectionManager(logger=logger)
 
@@ -82,7 +86,7 @@ class Server:
             await self.manager.connect(websocket)
             if len(self.manager.active_connections) > int(self.peakWS):
                 self.peakWS = len(self.manager.active_connections)
-                self.write_ws_counter(peakws=self.peakWS)
+                #self.write_ws_counter(peakws=self.peakWS)
             message = {
                 "ws": len(self.manager.active_connections),
                 "peak": self.peakWS,
@@ -157,9 +161,12 @@ class Server:
         return counter
     
     def get_ws_counter(self):
+        c = 0
         with open('wscounter', mode='r') as f:
-            return f.read()
+            c = f.read()
+        return c
     
     def write_ws_counter(self, peakws):
         with open('wscounter', mode='w') as f:
             f.write(str(peakws))
+        return
