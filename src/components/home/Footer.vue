@@ -71,7 +71,7 @@
         this.$store.state.confettiSwitch = this.switch1
       },
       openWebpage () {
-        window.open('https://github.com/icheered/Sloth', '_blank')
+        window.open('https://github.com/icheered/PerscoBingo', '_blank')
       },
     }
   }

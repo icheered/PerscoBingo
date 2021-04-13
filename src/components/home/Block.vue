@@ -5,7 +5,7 @@
             :elevation="hover ? 8 : 3"
             rounded="lg" 
             height="100"
-            @click="invert" 
+            @click="invert"
             :color="color"
             class="text-center transition-fast-in-fast-out"
             max-width="100%"

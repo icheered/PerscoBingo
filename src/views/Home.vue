@@ -43,7 +43,21 @@ export default {
     niceclick() {
       this.$store.state.render.canGetOverlay = false,
       this.$confetti.stop()
-    }
+    },
+    getStats() {
+      let URL = "http://localhost:8010/getstats"
+      fetch(URL, {mode: 'no-cors'})
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data)
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
+    } 
+  },
+  mounted() {
+    this.getStats()
   },
   watch: {
     '$store.state.render.overlay': function() {
