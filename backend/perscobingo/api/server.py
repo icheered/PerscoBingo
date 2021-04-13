@@ -53,7 +53,7 @@ class Server:
         self.logger = logger
         self.loop = loop
 
-        self.peakWS = int(self.get_ws_counter())
+        self.peakWS = 0
 
         self.manager = ConnectionManager(logger=logger)
 
