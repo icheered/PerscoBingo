@@ -66,8 +66,8 @@ export default {
     },
     connectWS(){
       console.log("Connecting to WS")
-      //var websocket = new WebSocket("wss://bingo.icheered.nl/ws/ws")
-      var websocket = new WebSocket("ws://localhost:8010/ws")
+      var websocket = new WebSocket("wss://bingo.icheered.nl/ws/ws")
+      //var websocket = new WebSocket("ws://localhost:8010/ws")
       websocket.onopen = (event) => {
           console.log("Created Opened")
       }
